@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <form action="/clear_session">
+        <h1><input type="submit" value="Завершить сессию досрочно" /></h1>
+    </form>
+    <h1>Пункт 1</h1>
+    <p> {{text}} </p>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.city.label }}<br>
+            {{ form.city }}<br>
+            {% for error in form.city.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.fio.label }}<br>
+            {{ form.fio }}<br>
+            {% for error in form.fio.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.adress.label }}<br>
+            {{ form.adress }}<br>
+            {% for error in form.adress.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.cause.label }}<br>
+            {{ form.cause }}<br>
+            {% for error in form.cause.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.number.label }}<br>
+            {{ form.number }}<br>
+            {% for error in form.number.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.comment.label }}<br>
+            {{ form.comment }}<br>
+            {% for error in form.comment.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

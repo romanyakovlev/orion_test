@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <h1>Пункт 4 </h1>
+    <p> {{text}} </p>
+    <form action="/clear_session">
+        <input type="submit" value="Завершить" />
+    </form>
+{% endblock %}

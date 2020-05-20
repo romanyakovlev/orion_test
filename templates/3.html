@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>Пункт 3</h1>
+    <p> {{text}} </p>
+	<form action="" method="post" novalidate>
+
+        <p>
+            Название города - {{data.city_name}}
+        </p>
+        <p>
+            ФИО - {{data.fio}}
+        </p>
+        <p>
+            Адрес - {{data.adress}}
+        </p>
+        <p>
+           	Причина - {{data.cause_name}}
+        </p>
+        <p>
+            Комментарий - {{data.comment}}
+        </p>
+        <p>	
+        	{% if data.plans_names|length == 1 %}
+        	Выбранный план:
+	            <p>{{data.plans_names}}</p>
+	        {% else %}
+	        Выбранные планы:
+	        	{% for plan in data.plans_names %}
+	            	<p>{{plan}}</p>
+	            {% endfor %}
+	        {% endif %}
+        </p>
+
+
+        <button type="submit">Подтвердить</button>
+	</form>
+{% endblock %}
