@@ -7,6 +7,8 @@ from flask_sqlalchemy import SQLAlchemy
 from app import app, db
 from sql_requests import get_data_from_sql, write_application_to_db, get_script_text_by_id
 
+import argparse
+
 @app.route('/')
 def hello():
 
@@ -85,4 +87,9 @@ def clear_session():
 	return redirect('/')
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-u', '--url', help='подключение к бд', required=True)
+    args = vars(parser.parse_args())
+    app.config['SQLALCHEMY_DATABASE_URI'] = args['url']
+
     app.run()
